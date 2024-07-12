@@ -1,7 +1,7 @@
 import React from "react";
 import { FieldValues, UseFormRegister } from "react-hook-form";
 
-import classes from "./index.module.scss";
+import classes from "./Input.module.scss";
 
 interface DropdownOption {
   value: string;

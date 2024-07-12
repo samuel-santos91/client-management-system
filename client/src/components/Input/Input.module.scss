@@ -1,31 +1,30 @@
 .input-wrap {
   width: 100%;
-}
 
-.input {
-  width: 100%;
-  border-radius: 10px;
-  border: 1px solid grey;
-  height: 50px;
-  padding: 16px;
-  font-size: 16px;
-}
+  .input {
+    width: 100%;
+    border-radius: 10px;
+    border: 1px solid grey;
+    padding: 16px;
+    font-size: 16px;
+  }
 
-.error {
-  background-color: red;
-}
+  .error {
+    background-color: rgb(255, 132, 132);
+  }
 
-.label {
-  margin-bottom: 0;
-  display: block;
-  line-height: 1;
-  margin-bottom: 5px;
-  font-size: 12px;
-}
+  .label {
+    margin-bottom: 0;
+    display: block;
+    line-height: 1;
+    margin-bottom: 5px;
+    font-size: 12px;
+  }
 
-.errorMessage {
-  font-size: small;
-  line-height: 1.25;
-  margin-top: 4px;
-  color: red;
+  .errorMessage {
+    font-size: small;
+    line-height: 1.25;
+    margin-top: 4px;
+    color: red;
+  }
 }
