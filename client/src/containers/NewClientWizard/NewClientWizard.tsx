@@ -1,14 +1,15 @@
-import React from "react"
+import React from "react";
 
-import Content from "../Content/Content"
+import WizardContent from "../WizardContent/WizardContent";
+import WizardControls from "../../components/WizardControls/WizardControls";
 
 const NewClientWizard: React.FC = () => {
   return (
     <div>
-     <Content/>
-     StepperControls
+      <WizardContent/>
+      <WizardControls/>
     </div>
-  )
-}
+  );
+};
 
-export default NewClientWizard
+export default NewClientWizard;

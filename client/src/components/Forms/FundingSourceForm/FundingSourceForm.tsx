@@ -1,8 +1,8 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 
-import Input from "../Input/Input";
-import { fundingSources } from "../../constants/fundingSources";
+import Input from "../../Input/Input";
+import { fundingSources } from "../../../constants/fundingSources";
 
 interface FundingSourceFormData {
   fundingSource: string;

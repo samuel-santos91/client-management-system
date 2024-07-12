@@ -1,7 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 
-import Input from "../Input/Input";
+import Input from "../../Input/Input";
 
 interface LanguageFormData {
     mainLanguage: string

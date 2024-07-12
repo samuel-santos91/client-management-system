@@ -35,7 +35,7 @@ const Input: React.FC<InputProps> = ({
 }) => {
   return (
     <div className={classes["input-wrap"]}>
-      <label htmlFor="name" className={classes.label}>
+      <label htmlFor={name} className={classes.label}>
         {label}
       </label>
       {isDropdown ? (
@@ -54,6 +54,7 @@ const Input: React.FC<InputProps> = ({
         </select>
       ) : (
         <input
+          id={name}
           className={`${classes.input} ${error ? classes.error : ""}`}
           {...register(name, {
             required,
