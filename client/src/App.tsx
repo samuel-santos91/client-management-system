@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import ClientList from "./ClientList/ClientList";
-import NewClientWizard from "./NewClientWizard/NewClientWizard";
+import ClientList from "./containers/ClientList/ClientList";
+import NewClientWizard from "./containers/NewClientWizard/NewClientWizard";
 
 import "./App.css";
 
@@ -10,7 +10,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<ClientList />} />
-        <Route path="/add-client" element={<NewClientWizard />} />
+        <Route path="/new-client" element={<NewClientWizard />} />
       </Routes>
     </BrowserRouter>
   );
