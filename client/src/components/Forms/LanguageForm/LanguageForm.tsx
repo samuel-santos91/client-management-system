@@ -1,9 +1,8 @@
-import React, { useContext } from "react";
+import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 
 import Input from "../../Input/Input";
 import WizardControls from "../../WizardControls/WizardControls";
-import { StepperContext } from "../../../context/StepperContextProvider";
 
 export interface LanguageFormData {
   mainLanguage: string;
@@ -15,20 +14,33 @@ interface FormProps {
 }
 
 const LanguageForm: React.FC<FormProps> = ({ onSubmit }) => {
-  const context = useContext(StepperContext);
-  if (!context) return null;
-  const { formData } = context;
+  const storedFormData = JSON.parse(
+    localStorage.getItem("LanguageFormData") || "{}"
+  );
 
   const {
     register,
     handleSubmit,
+    watch,
     formState: { errors },
   } = useForm<LanguageFormData>({
     defaultValues: {
-      mainLanguage: formData.mainLanguage,
-      secondaryLanguage: formData.secondaryLanguage,
+      mainLanguage: storedFormData.mainLanguage,
+      secondaryLanguage: storedFormData.secondaryLanguage,
     },
   });
+
+  const watchAll = watch();
+
+  useEffect(() => {
+    localStorage.setItem(
+      "LanguageFormData",
+      JSON.stringify({
+        mainLanguage: watchAll.mainLanguage,
+        secondaryLanguage: watchAll.secondaryLanguage,
+      })
+    );
+  }, [watchAll]);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>

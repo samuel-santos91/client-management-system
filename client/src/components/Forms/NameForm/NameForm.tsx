@@ -47,7 +47,6 @@ const NameForm: React.FC<FormProps> = ({ onSubmit }) => {
         required={true}
         register={register}
         error={errors.dateOfBirth}
-        placeHolder="Enter name"
       />
       <WizardControls />
     </form>

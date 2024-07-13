@@ -1,9 +1,8 @@
-import React, { useContext } from "react";
+import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 
 import Input from "../../Input/Input";
 import WizardControls from "../../WizardControls/WizardControls";
-import { StepperContext } from "../../../context/StepperContextProvider";
 import { fundingSources } from "../../../constants/fundingSources";
 
 export interface FundingSourceFormData {
@@ -15,19 +14,31 @@ interface FormProps {
 }
 
 const FundingSourceForm: React.FC<FormProps> = ({ onSubmit }) => {
-  const context = useContext(StepperContext);
-  if (!context) return null;
-  const { formData } = context;
+  const storedFormData = JSON.parse(
+    localStorage.getItem("FundingSourceFormData") || "{}"
+  );
 
   const {
     register,
     handleSubmit,
+    watch,
     formState: { errors },
   } = useForm<FundingSourceFormData>({
     defaultValues: {
-      fundingSource: formData.fundingSource,
+      fundingSource: storedFormData.fundingSource,
     },
   });
+
+  const watchAll = watch();
+
+  useEffect(() => {
+    localStorage.setItem(
+      "FundingSourceFormData",
+      JSON.stringify({
+        fundingSource: watchAll.fundingSource,
+      })
+    );
+  }, [watchAll]);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
