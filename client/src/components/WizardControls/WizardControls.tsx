@@ -2,33 +2,27 @@ import React, { useContext } from "react";
 
 import { StepperContext } from "../../context/StepperContextProvider";
 
+import classes from "./WizardControls.module.scss";
+
 const WizardControls: React.FC = () => {
   const context = useContext(StepperContext);
-
-  if (!context) {
-    return null;
-  }
-
+  if (!context) return null;
   const { currentStep, setCurrentStep, steps } = context;
 
-  const controlHandler = (e: React.MouseEvent<HTMLButtonElement>) => {
-    const action = e.currentTarget.textContent;
-
-    if (action === "Previous") {
-      if (currentStep > 1) {
-        setCurrentStep(currentStep - 1);
-      }
-    } else {
-      setCurrentStep(currentStep + 1);
-    }
-  };
-
   return (
-    <div>
-      <button onClick={controlHandler} disabled={currentStep === 1}>
+    <div className={classes['btn-wrapper']}>
+      <button
+        className={classes["prev-btn"]}
+        onClick={() => setCurrentStep((prev) => prev - 1)}
+        disabled={currentStep === 1}
+      >
         Previous
       </button>
-      <button onClick={controlHandler} disabled={currentStep === steps.length}>
+      <button
+        className={classes["next-btn"]}
+        type="submit"
+        disabled={currentStep === steps.length}
+      >
         Next
       </button>
     </div>

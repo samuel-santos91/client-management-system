@@ -2,22 +2,23 @@ import React from "react";
 import { useForm } from "react-hook-form";
 
 import Input from "../../Input/Input";
+import WizardControls from "../../WizardControls/WizardControls";
 import { fundingSources } from "../../../constants/fundingSources";
 
-interface FundingSourceFormData {
+export interface FundingSourceFormData {
   fundingSource: string;
 }
 
-const FundingSourceForm: React.FC = () => {
+interface FormProps {
+  onSubmit: (data: FundingSourceFormData)=> void
+}
+
+const FundingSourceForm: React.FC<FormProps> = ({onSubmit}) => {
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<FundingSourceFormData>();
-
-  const onSubmit = (data: FundingSourceFormData) => {
-    console.log(data);
-  };
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -31,6 +32,7 @@ const FundingSourceForm: React.FC = () => {
         isDropdown={true}
         dropdownOptions={fundingSources}
       />
+      <WizardControls/>
     </form>
   );
 };

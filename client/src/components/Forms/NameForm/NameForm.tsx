@@ -2,22 +2,23 @@ import React from "react";
 import { useForm } from "react-hook-form";
 
 import Input from "../../Input/Input";
+import WizardControls from "../../WizardControls/WizardControls";
 
-interface NameFormData {
-    name: string
-    dateOfBirth: string
+export interface NameFormData {
+  name: string;
+  dateOfBirth: string;
 }
 
-const NameForm: React.FC = () => {
-    const {
-        register,
-        handleSubmit,
-        formState: { errors },
-      } = useForm<NameFormData>()
+interface FormProps {
+  onSubmit: (data: NameFormData)=> void
+}
 
-      const onSubmit = (data: NameFormData) => {
-        console.log(data)
-      }
+const NameForm: React.FC<FormProps> = ({onSubmit}) => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<NameFormData>();
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -29,7 +30,7 @@ const NameForm: React.FC = () => {
         error={errors.name}
         placeHolder="Enter name"
       />
-       <Input
+      <Input
         name="dateOfBirth"
         label="Date of birth"
         type="date"
@@ -38,6 +39,7 @@ const NameForm: React.FC = () => {
         error={errors.dateOfBirth}
         placeHolder="Enter name"
       />
+      <WizardControls/>
     </form>
   );
 };

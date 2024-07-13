@@ -2,22 +2,23 @@ import React from "react";
 import { useForm } from "react-hook-form";
 
 import Input from "../../Input/Input";
+import WizardControls from "../../WizardControls/WizardControls";
 
-interface LanguageFormData {
-    mainLanguage: string
-    secondaryLanguage: string
+export interface LanguageFormData {
+  mainLanguage: string;
+  secondaryLanguage: string;
 }
 
-const LanguageForm: React.FC = () => {
-    const {
-        register,
-        handleSubmit,
-        formState: { errors },
-      } = useForm<LanguageFormData>()
+interface FormProps {
+  onSubmit: (data: LanguageFormData)=> void
+}
 
-      const onSubmit = (data: LanguageFormData) => {
-        console.log(data)
-      }
+const LanguageForm: React.FC<FormProps> = ({onSubmit}) => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<LanguageFormData>();
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -29,7 +30,7 @@ const LanguageForm: React.FC = () => {
         error={errors.mainLanguage}
         placeHolder="Enter language"
       />
-       <Input
+      <Input
         name="secondaryLanguage"
         label="Secondary language"
         required={true}
@@ -37,6 +38,7 @@ const LanguageForm: React.FC = () => {
         error={errors.secondaryLanguage}
         placeHolder="Enter language"
       />
+      <WizardControls/>
     </form>
   );
 };
