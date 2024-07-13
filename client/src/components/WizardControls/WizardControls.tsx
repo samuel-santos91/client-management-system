@@ -7,10 +7,10 @@ import classes from "./WizardControls.module.scss";
 const WizardControls: React.FC = () => {
   const context = useContext(StepperContext);
   if (!context) return null;
-  const { currentStep, setCurrentStep, steps } = context;
+  const { currentStep, setCurrentStep } = context;
 
   return (
-    <div className={classes['btn-wrapper']}>
+    <div className={classes["btn-wrapper"]}>
       <button
         className={classes["prev-btn"]}
         onClick={() => setCurrentStep((prev) => prev - 1)}
@@ -19,11 +19,12 @@ const WizardControls: React.FC = () => {
         Previous
       </button>
       <button
-        className={classes["next-btn"]}
+        className={
+          currentStep === 3 ? classes["add-client"] : classes["next-btn"]
+        }
         type="submit"
-        disabled={currentStep === steps.length}
       >
-        Next
+        {currentStep === 3 ? "Add client" : "Next"}
       </button>
     </div>
   );

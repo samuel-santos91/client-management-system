@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
 
 import Input from "../../Input/Input";
 import WizardControls from "../../WizardControls/WizardControls";
+import { StepperContext } from "../../../context/StepperContextProvider";
 import { fundingSources } from "../../../constants/fundingSources";
 
 export interface FundingSourceFormData {
@@ -10,15 +11,23 @@ export interface FundingSourceFormData {
 }
 
 interface FormProps {
-  onSubmit: (data: FundingSourceFormData)=> void
+  onSubmit: (data: FundingSourceFormData) => void;
 }
 
-const FundingSourceForm: React.FC<FormProps> = ({onSubmit}) => {
+const FundingSourceForm: React.FC<FormProps> = ({ onSubmit }) => {
+  const context = useContext(StepperContext);
+  if (!context) return null;
+  const { formData } = context;
+
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<FundingSourceFormData>();
+  } = useForm<FundingSourceFormData>({
+    defaultValues: {
+      fundingSource: formData.fundingSource,
+    },
+  });
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -32,7 +41,7 @@ const FundingSourceForm: React.FC<FormProps> = ({onSubmit}) => {
         isDropdown={true}
         dropdownOptions={fundingSources}
       />
-      <WizardControls/>
+      <WizardControls />
     </form>
   );
 };

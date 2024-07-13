@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
 
 import Input from "../../Input/Input";
 import WizardControls from "../../WizardControls/WizardControls";
+import { StepperContext } from "../../../context/StepperContextProvider";
 
 export interface NameFormData {
   name: string;
@@ -10,15 +11,24 @@ export interface NameFormData {
 }
 
 interface FormProps {
-  onSubmit: (data: NameFormData)=> void
+  onSubmit: (data: NameFormData) => void;
 }
 
-const NameForm: React.FC<FormProps> = ({onSubmit}) => {
+const NameForm: React.FC<FormProps> = ({ onSubmit }) => {
+  const context = useContext(StepperContext);
+  if (!context) return null;
+  const { formData } = context;
+
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<NameFormData>();
+  } = useForm<NameFormData>({
+    defaultValues: {
+      name: formData.name,
+      dateOfBirth: formData.dateOfBirth,
+    },
+  });
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -39,7 +49,7 @@ const NameForm: React.FC<FormProps> = ({onSubmit}) => {
         error={errors.dateOfBirth}
         placeHolder="Enter name"
       />
-      <WizardControls/>
+      <WizardControls />
     </form>
   );
 };

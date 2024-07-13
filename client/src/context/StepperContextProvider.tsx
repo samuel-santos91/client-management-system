@@ -11,7 +11,6 @@ interface FormDataType {
 interface ContextType {
   currentStep: number;
   setCurrentStep: React.Dispatch<React.SetStateAction<number>>;
-  steps: string[];
   formData: FormDataType;
   setFormData: React.Dispatch<React.SetStateAction<FormDataType>>;
 }
@@ -34,14 +33,11 @@ const StepperContextProvider: React.FC<StepperProviderProps> = ({
     fundingSource: "",
   });
 
-  const steps = ["Step 1", "Step 2", "Step 3"];
-
   return (
     <StepperContext.Provider
       value={{
         currentStep,
         setCurrentStep,
-        steps,
         formData,
         setFormData,
       }}
