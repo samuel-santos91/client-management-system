@@ -1,9 +1,8 @@
-import React, { useContext } from "react";
+import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 
 import Input from "../../Input/Input";
 import WizardControls from "../../WizardControls/WizardControls";
-import { StepperContext } from "../../../context/StepperContextProvider";
 
 export interface NameFormData {
   name: string;
@@ -15,20 +14,33 @@ interface FormProps {
 }
 
 const NameForm: React.FC<FormProps> = ({ onSubmit }) => {
-  const context = useContext(StepperContext);
-  if (!context) return null;
-  const { formData } = context;
+  const storedFormData = JSON.parse(
+    localStorage.getItem("NameFormData") || "{}"
+  );
 
   const {
     register,
     handleSubmit,
+    watch,
     formState: { errors },
   } = useForm<NameFormData>({
     defaultValues: {
-      name: formData.name,
-      dateOfBirth: formData.dateOfBirth,
+      name: storedFormData.name,
+      dateOfBirth: storedFormData.dateOfBirth,
     },
   });
+
+  const watchAll = watch();
+
+  useEffect(() => {
+    localStorage.setItem(
+      "NameFormData",
+      JSON.stringify({
+        name: watchAll.name,
+        dateOfBirth: watchAll.dateOfBirth,
+      })
+    );
+  }, [watchAll]);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>

@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import ClientList from "./containers/ClientList/ClientList";
+import Main from "./containers/Main/Main";
 import NewClientWizard from "./containers/NewClientWizard/NewClientWizard";
 import StepperContextProvider from "./context/StepperContextProvider";
 
@@ -11,7 +11,7 @@ function App() {
     <StepperContextProvider>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<ClientList />} />
+          <Route path="/" element={<Main />} />
           <Route path="/new-client" element={<NewClientWizard />} />
         </Routes>
       </BrowserRouter>

@@ -1,7 +1,7 @@
 import React from "react"
 import { Link } from "react-router-dom"
 
-const ClientList: React.FC = () => {
+const Main: React.FC = () => {
   return (
     <div>
       ClientList
@@ -10,4 +10,4 @@ const ClientList: React.FC = () => {
   )
 }
 
-export default ClientList
+export default Main

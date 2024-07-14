@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import NameForm from "../../components/Forms/NameForm/NameForm";
 import LanguageForm from "../../components/Forms/LanguageForm/LanguageForm";
 import FundingSourceForm from "../../components/Forms/FundingSourceForm/FundingSourceForm";
+
 import { StepperContext } from "../../context/StepperContextProvider";
 import { NameFormData } from "../../components/Forms/NameForm/NameForm";
 import { LanguageFormData } from "../../components/Forms/LanguageForm/LanguageForm";
@@ -19,8 +20,6 @@ const WizardContent: React.FC = () => {
   const navigate = useNavigate();
 
   const submitHandler = (data: Partial<FormData>) => {
-    console.log(currentStep);
-
     setFormData((prevData) => ({
       ...prevData,
       ...data,
@@ -40,7 +39,7 @@ const WizardContent: React.FC = () => {
 
       localStorage.removeItem("LanguageFormData");
       localStorage.removeItem("FundingSourceFormData");
-      
+
       navigate("/");
     }
   };
