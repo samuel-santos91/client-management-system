@@ -1,9 +1,24 @@
 import express, { Express, Request, Response } from "express";
 import dotenv from "dotenv";
+import cors, { CorsOptions } from "cors";
+
+interface CustomCorsOptions extends CorsOptions {
+  headers?: string[];
+}
 
 dotenv.config();
 
 const app: Express = express();
+
+const corsOptions: CustomCorsOptions = {
+  origin: "http://localhost:5173",
+  methods: ["POST", "GET"],
+};
+
+app.use(cors(corsOptions));
+
+app.use(express.json());
+
 const port = process.env.PORT || 3000;
 
 app.get("/", (req: Request, res: Response) => {
