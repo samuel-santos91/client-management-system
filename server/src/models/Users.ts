@@ -1,8 +1,5 @@
 import { DataTypes, Model, Sequelize } from "sequelize";
-
-const sequelize = new Sequelize(
-  "mysql://your_username:your_password@localhost:3306/your_database"
-);
+import sequelize from "../config/database";
 
 class User extends Model {
   public id!: number;

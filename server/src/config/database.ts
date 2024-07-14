@@ -1,27 +1,23 @@
-import mysql from "mysql";
+import { Sequelize } from "sequelize";
 import dotenv from "dotenv";
 
 dotenv.config();
 
-const dbConfig = {
+const sequelize = new Sequelize({
+  dialect: "mysql",
   host: process.env.MYSQL_ADDON_HOST,
   database: process.env.MYSQL_ADDON_DB,
-  user: process.env.MYSQL_ADDON_USER,
+  username: process.env.MYSQL_ADDON_USER,
   password: process.env.MYSQL_ADDON_PASSWORD!,
-};
+});
 
-const connection = mysql.createConnection(dbConfig);
-
-const connectDB = (): Promise<mysql.Connection> => {
-  return new Promise((resolve, reject) => {
-    connection.connect((err) => {
-      if (err) {
-        return reject(err);
-      }
-      console.log("Connected to MySQL");
-      resolve(connection);
-    });
+sequelize
+  .sync()
+  .then(() => {
+    console.log("Tables synchronysed successfully");
+  })
+  .catch((error) => {
+    console.log("Error synchronising tables", error);
   });
-};
 
-export { connection, connectDB };
+export default sequelize;
