@@ -1,7 +1,13 @@
+@use "../../styles/partials/variables" as vars;
+
 .btn-wrapper {
   display: flex;
   justify-content: center;
   gap: 10px;
+
+  button {
+    width: 120px;
+  }
 
   .prev-btn {
     &:disabled {
@@ -10,18 +16,22 @@
   }
 
   .next-btn {
-    background-color: rgb(20, 20, 20);
+    background-color: vars.$black-theme;
     color: white;
 
     &:disabled {
-      background-color: rgb(138, 138, 138);
-      color: rgb(101, 90, 90);
+      background-color: vars.$disabled-theme-1;
+      color: vars.$disabled-theme-2;
       cursor: not-allowed;
     }
   }
 
   .add-user {
-    background-color: rgb(74, 134, 255);
+    white-space: nowrap;
+    background-color: vars.$table-line-2;
     color: white;
+    &:hover {
+      background-color: vars.$table-line-2-hover;
+    }
   }
 }

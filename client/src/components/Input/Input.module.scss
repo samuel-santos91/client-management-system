@@ -1,17 +1,20 @@
+@use '../../styles/partials/variables' as vars;
+
 .input-wrap {
   width: 100%;
+  margin: 20px 0;
 
   .input {
     width: 100%;
     border-radius: 10px;
-    border: 1px solid grey;
+    border: 1px solid vars.$brown-theme;
     box-sizing: border-box;
     padding: 16px;
     font-size: 16px;
   }
 
   .error {
-    background-color: rgb(255, 132, 132);
+    background-color: vars.$red-theme;
   }
 
   .label {
@@ -26,6 +29,6 @@
     font-size: small;
     line-height: 1.25;
     margin-top: 4px;
-    color: red;
+    color: vars.$red-theme-strong;
   }
 }

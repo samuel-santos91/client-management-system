@@ -1,0 +1,36 @@
+@use "../../styles/partials/variables" as vars;
+
+h2 {
+  text-align: center;
+  font-size: 34px;
+}
+
+.table {
+  border-collapse: collapse;
+  white-space: nowrap;
+  text-align: center;
+  width: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+
+  th {
+    padding: 30px;
+    background-color: vars.$table-header;
+    font-size: 18px;
+    color: white;
+  }
+  td {
+    padding: 20px;
+    font-size: 16px;
+  }
+  tr {
+    &:nth-child(odd) {
+      background-color: vars.$table-line-1;
+    }
+
+    &:nth-child(even) {
+      background-color: vars.$table-line-2;
+      color: white;
+    }
+  }
+}

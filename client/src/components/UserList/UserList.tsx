@@ -3,6 +3,8 @@ import React, { useContext, useEffect, useState } from "react";
 import { getUsers } from "../../services/api";
 import { StepperContext } from "../../context/StepperContextProvider";
 
+import classes from './UserList.module.scss'
+
 interface UserData {
   id: number;
   name: string;
@@ -35,7 +37,7 @@ const UserList: React.FC = () => {
   return (
     <main>
       <h2>Users List</h2>
-      <table>
+      <table className={classes.table}>
         <thead>
           <tr>
             <th>Name</th>

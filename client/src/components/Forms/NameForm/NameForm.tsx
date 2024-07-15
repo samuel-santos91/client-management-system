@@ -50,7 +50,7 @@ const NameForm: React.FC<FormProps> = ({ onSubmit }) => {
         required={true}
         register={register}
         error={errors.name}
-        placeHolder="Enter name"
+        placeHolder="Enter full name"
       />
       <Input
         name="dateOfBirth"

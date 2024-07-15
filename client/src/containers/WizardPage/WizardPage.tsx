@@ -3,11 +3,13 @@ import { Link } from "react-router-dom"
 
 import WizardContent from "../WizardContent/WizardContent";
 
+import classes from './WizardPage.module.scss'
+
 const WizardPage: React.FC = () => {
   return (
     <div>
       <WizardContent/>
-      <Link to='/'>Return to main page</Link>
+      <Link className={classes['return-link']} to='/'>Return to main page</Link>
     </div>
   );
 };
