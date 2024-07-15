@@ -12,7 +12,7 @@ interface UserData {
 }
 
 const api = axios.create({
-  baseURL: "https://employee-creator-server.onrender.com",
+  baseURL: "http://localhost:3000/users",
 });
 
 export const getUsers = async (): Promise<UserData[]> => {
