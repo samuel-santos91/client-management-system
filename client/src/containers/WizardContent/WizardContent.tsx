@@ -37,8 +37,16 @@ const WizardContent: React.FC = () => {
 
     setCurrentStep((prev) => prev + 1);
 
-    if (currentStep === 3 && Object.keys(formData).length === 5) {
-      addData(formData);
+    if (currentStep === 3) {
+      const currentData = {
+        name: formData.name || "",
+        dateOfBirth: formData.dateOfBirth || "",
+        mainLanguage: formData.mainLanguage || "",
+        secondaryLanguage: formData.secondaryLanguage || "",
+        fundingSource: data.fundingSource || "",
+      };
+
+      addData(currentData);
       setCurrentStep(1);
       setFormData({
         name: "",
