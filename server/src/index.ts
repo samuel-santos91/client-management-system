@@ -1,6 +1,7 @@
 import express, { Express, Request, Response } from "express";
 import dotenv from "dotenv";
 import cors, { CorsOptions } from "cors";
+import userRoutes from "./routes/user.routes";
 
 interface CustomCorsOptions extends CorsOptions {
   headers?: string[];
@@ -18,6 +19,7 @@ const corsOptions: CustomCorsOptions = {
 app.use(cors(corsOptions));
 
 app.use(express.json());
+app.use("/users", userRoutes)
 
 const port = process.env.PORT || 3000;
 
