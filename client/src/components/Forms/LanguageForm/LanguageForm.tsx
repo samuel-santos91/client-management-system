@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 
 import Input from "../../Input/Input";
 import WizardControls from "../../WizardControls/WizardControls";
+import listOfLanguages from "../../../constants/langugeList";
 
 export interface LanguageFormData {
   mainLanguage: string;
@@ -50,7 +51,8 @@ const LanguageForm: React.FC<FormProps> = ({ onSubmit }) => {
         required={true}
         register={register}
         error={errors.mainLanguage}
-        placeHolder="Enter language"
+        isDropdown={true}
+        dropdownOptions={listOfLanguages}
       />
       <Input
         name="secondaryLanguage"
@@ -58,7 +60,8 @@ const LanguageForm: React.FC<FormProps> = ({ onSubmit }) => {
         required={true}
         register={register}
         error={errors.secondaryLanguage}
-        placeHolder="Enter language"
+        isDropdown={true}
+        dropdownOptions={listOfLanguages}
       />
       <WizardControls />
     </form>

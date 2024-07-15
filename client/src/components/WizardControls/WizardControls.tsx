@@ -20,11 +20,11 @@ const WizardControls: React.FC = () => {
       </button>
       <button
         className={
-          currentStep === 3 ? classes["add-client"] : classes["next-btn"]
+          currentStep === 3 ? classes["add-user"] : classes["next-btn"]
         }
         type="submit"
       >
-        {currentStep === 3 ? "Add client" : "Next"}
+        {currentStep === 3 ? "Add user" : "Next"}
       </button>
     </div>
   );

@@ -12,7 +12,7 @@ interface UserData {
   fundingSource: string;
 }
 
-const ClientList: React.FC = () => {
+const UserList: React.FC = () => {
   const context = useContext(StepperContext);
   if (!context) return null;
   const { formData } = context;
@@ -34,7 +34,7 @@ const ClientList: React.FC = () => {
 
   return (
     <main>
-      <h2>Clients List</h2>
+      <h2>Users List</h2>
       <table>
         <thead>
           <tr>
@@ -61,4 +61,4 @@ const ClientList: React.FC = () => {
   );
 };
 
-export default ClientList;
+export default UserList;

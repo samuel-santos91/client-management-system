@@ -1,13 +1,13 @@
 import React from "react"
 import { Link } from "react-router-dom"
 
-import ClientList from "../../components/ClientList/ClientList"
+import UserList from "../../components/UserList/UserList"
 
 const Main: React.FC = () => {
   return (
     <div>
-      <ClientList/>
-      <Link to='/new-client'>Add New Client</Link>
+      <UserList/>
+      <Link to='/new-client'>Add New User</Link>
     </div>
   )
 }

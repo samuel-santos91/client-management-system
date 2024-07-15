@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 
 import WizardContent from "../WizardContent/WizardContent";
 
-const NewClientWizard: React.FC = () => {
+const WizardPage: React.FC = () => {
   return (
     <div>
       <WizardContent/>
@@ -12,4 +12,4 @@ const NewClientWizard: React.FC = () => {
   );
 };
 
-export default NewClientWizard;
+export default WizardPage;

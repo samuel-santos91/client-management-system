@@ -1,8 +1,8 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Main from "./containers/Main/Main";
-import NewClientWizard from "./containers/NewClientWizard/NewClientWizard";
-import ClientAdded from "./components/ClientAdded/ClientAdded";
+import WizardPage from "./containers/WizardPage/WizardPage";
+import UserAdded from "./components/UserAdded/UserAdded";
 import StepperContextProvider from "./context/StepperContextProvider";
 
 import "./App.css";
@@ -13,8 +13,8 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Main />} />
-          <Route path="/new-client" element={<NewClientWizard />} />
-          <Route path="/added" element={<ClientAdded/>}/>
+          <Route path="/new-client" element={<WizardPage />} />
+          <Route path="/added" element={<UserAdded/>}/>
         </Routes>
       </BrowserRouter>
     </StepperContextProvider>
