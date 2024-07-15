@@ -1,17 +1,22 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 
 import { getUsers } from "../../services/api";
+import { StepperContext } from "../../context/StepperContextProvider";
 
 interface UserData {
-    id: number;
-    name: string;
-    dateOfBirth: string;
-    mainLanguage: string;
-    secondaryLanguage: string;
-    fundingSource: string;
-  }
+  id: number;
+  name: string;
+  dateOfBirth: string;
+  mainLanguage: string;
+  secondaryLanguage: string;
+  fundingSource: string;
+}
 
 const ClientList: React.FC = () => {
+  const context = useContext(StepperContext);
+  if (!context) return null;
+  const { formData } = context;
+
   const [userDataList, setUserDataList] = useState<UserData[]>([]);
 
   const fetchData = async () => {
@@ -20,13 +25,12 @@ const ClientList: React.FC = () => {
       setUserDataList(res);
     } catch (error) {
       console.error("Error fetching data:", error);
-    } finally {
     }
   };
 
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [formData]);
 
   return (
     <main>

@@ -9,15 +9,25 @@ import { StepperContext } from "../../context/StepperContextProvider";
 import { NameFormData } from "../../components/Forms/NameForm/NameForm";
 import { LanguageFormData } from "../../components/Forms/LanguageForm/LanguageForm";
 import { FundingSourceFormData } from "../../components/Forms/FundingSourceForm/FundingSourceForm";
+import { FormDataType } from "../../context/StepperContextProvider";
+import { addUser } from "../../services/api";
 
 type FormData = NameFormData & LanguageFormData & FundingSourceFormData;
 
 const WizardContent: React.FC = () => {
   const context = useContext(StepperContext);
   if (!context) return null;
-  const { currentStep, setCurrentStep, setFormData } = context;
+  const { currentStep, setCurrentStep, formData, setFormData } = context;
 
   const navigate = useNavigate();
+
+  const addData = async (data: FormDataType) => {
+    try {
+      await addUser(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const submitHandler = (data: Partial<FormData>) => {
     setFormData((prevData) => ({
@@ -27,7 +37,8 @@ const WizardContent: React.FC = () => {
 
     setCurrentStep((prev) => prev + 1);
 
-    if (currentStep === 3) {
+    if (currentStep === 3 && Object.keys(formData).length === 5) {
+      addData(formData);
       setCurrentStep(1);
       setFormData({
         name: "",
@@ -37,10 +48,11 @@ const WizardContent: React.FC = () => {
         fundingSource: "",
       });
 
+      localStorage.removeItem("NameFormData");
       localStorage.removeItem("LanguageFormData");
       localStorage.removeItem("FundingSourceFormData");
 
-      navigate("/");
+      navigate("/added");
     }
   };
 

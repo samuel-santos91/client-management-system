@@ -1,6 +1,7 @@
 import axios from "axios";
 
 import { handleApiError } from "./errorHandling";
+import { FormDataType } from "../context/StepperContextProvider";
 
 interface UserData {
   id: number;
@@ -24,7 +25,7 @@ export const getUsers = async (): Promise<UserData[]> => {
   }
 };
 
-export const addEmployee = async (data: UserData): Promise<boolean> => {
+export const addUser = async (data: FormDataType): Promise<boolean> => {
   try {
     await api.post("/new-user", data);
     return true;

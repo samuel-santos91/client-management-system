@@ -1,6 +1,6 @@
 import { createContext, ReactNode, useState } from "react";
 
-interface FormDataType {
+export interface FormDataType {
   name: string;
   dateOfBirth: string;
   mainLanguage: string;
