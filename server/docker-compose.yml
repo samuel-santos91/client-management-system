@@ -5,7 +5,7 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ADDON_PASSWORD}
       MYSQL_DATABASE: ${MYSQL_ADDON_DB}
-      # Commented out due to configuration of only using root credentials on my local machine
+      # Commented out if only using root credentials on your local machine
       # MYSQL_USER: ${MYSQL_ADDON_USER}
       # MYSQL_PASSWORD: ${MYSQL_ADDON_PASSWORD}
     ports:
