@@ -1,46 +1,47 @@
 @use "../../styles/partials/variables" as vars;
 
 h2 {
-  margin-top: 100px;
+  margin: 100px 0 20px 0;
   text-align: center;
   font-size: 30px;
 }
 
 .table-wrapper {
   width: 100%;
-  overflow-x: auto; 
-  display: block; 
+  overflow-x: auto;
+  display: block;
   padding-bottom: 30px;
 
   .table {
-  border-collapse: collapse;
-  text-align: center;
-  margin: 0 auto;
-  width: 60%;
-  box-shadow: 5.7px 11.4px 11.4px hsl(0deg 0% 0% / 0.32);
-  
-  th {
-    padding: 15px;
-    background-color: vars.$table-header;
-    font-size: 15px;
-    color: white;
-  }
-  td {
-    padding: 20px;
-    font-size: 0.9rem;
-    white-space: nowrap;
-  }
-  tr {
-    &:nth-child(odd) {
-      background-color: vars.$table-line-1;
-    }
+    border-collapse: collapse;
+    text-align: center;
+    margin: 0 auto;
+    width: 60%;
+    box-shadow: 5.7px 11.4px 11.4px hsl(0deg 0% 0% / 0.32);
 
-    &:nth-child(even) {
-      background-color: vars.$table-line-2;
+    th {
+      padding: 15px;
+      background-color: vars.$table-header;
+      font-size: 15px;
       color: white;
     }
+    td {
+      padding: 20px;
+      font-size: 0.9rem;
+      white-space: nowrap;
+    }
+    tr {
+      &:nth-child(odd) {
+        background-color: vars.$table-line-1;
+      }
+
+      &:nth-child(even) {
+        background-color: vars.$table-line-2;
+        color: white;
+      }
+    }
+  }
+  p {
+    text-align: center;
   }
 }
-}
-
-
