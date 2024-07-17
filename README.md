@@ -132,8 +132,11 @@ volumes:
   *  **Solution:** Utilised the `localStorage` property to retain form data until submission.
   *  [Documentation](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage)
 
-## Future Implementation
+## Future Implementations
 * Implement options to edit or delete a user from the system.
+* Implement tests:
+  * **Backend tests**: Implement unit tests for the backend API endpoints.
+  * **Frontend tests**: Develop unit tests for individual components and end-to-end tests.
 
  
  
