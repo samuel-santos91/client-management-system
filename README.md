@@ -1,7 +1,6 @@
 # client-management-system
 ## Preview
-
-IMAGES TO BE UPLOADED
+<img width="500" alt="Screenshot 2024-07-17 at 15 40 52" src="https://github.com/user-attachments/assets/2c1d04ee-0dad-442c-9b82-6bdd167a005e">
 
 ## Requirements
 ### MVP
@@ -26,14 +25,25 @@ IMAGES TO BE UPLOADED
   * **Step 3:** Add primary funding source (NDIS, HCP, CHSP, DVA, HACC).
 * The `previous` button is **disabled** on the first step.
 * The `next` button changes to "Add user" on the last step.
-  
-IMAGES TO BE UPLOADED
+### **Step 1**
+<img width="500" alt="Screenshot 2024-07-17 at 15 41 36" src="https://github.com/user-attachments/assets/6bb233b8-587f-4cfd-9225-3937cd0f6bca">
+
+### **Step 2**
+<img width="500" alt="Screenshot 2024-07-17 at 15 41 24" src="https://github.com/user-attachments/assets/3a8dc427-d3e5-4fd2-9076-7d7566db2086">
+
+### **Step 3**
+<img width="500" alt="Screenshot 2024-07-17 at 15 42 02" src="https://github.com/user-attachments/assets/2b0ebcc0-069d-4613-9c1b-f05b39a4e01d">
 
 ### Forms
 * Users **cannot** change steps without completing the required inputs **(form validation)**.
 * Users can refresh the page, return to previous steps, or navigate to different pages **without** losing form values until the form is submitted.
-  
-IMAGES TO BE UPLOADED
+<img width="500" alt="Screenshot 2024-07-17 at 15 41 51" src="https://github.com/user-attachments/assets/6743c92c-4f49-4c89-b39e-6e4b2b4e760d">
+
+### API Endpoints
+* **GET** `/url/users` - Retrieves all users.
+* **POST** `/url/new-user` - Creates a new user.
+* **PUT** `/url/:id` - Updates a user by ID.
+* **DELETE** `/url/:id` - Deletes a user by ID.
 
 ## Cloning and Running the Application in local machine
 1. Clone repository
@@ -45,6 +55,10 @@ git clone https://github.com/yourusername/yourrepository.git cd yourrepository
 * Navigate to the client folder:
 ```bash
 cd client
+```
+* Install packages
+```bash
+npm install
 ```
 * Update the API configuration in services/api.ts:
 ```jsx
@@ -62,6 +76,10 @@ npm run dev
 * Navigate to the server folder:
 ```bash
 cd ../server
+```
+* Install packages
+```bash
+npm install
 ```
 * Update the environment variables as needed in the **.env** file
 * To start the backend server, run:
@@ -113,5 +131,9 @@ volumes:
 * **Data Persistence in Forms:** Ensuring that form data remains intact when refreshing the page, navigating between steps, or switching pages.
   *  **Solution:** Utilised the `localStorage` property to retain form data until submission.
   *  [Documentation](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage)
+
+## Future Implementation
+* Implement options to edit or delete a user from the system.
+
  
  
