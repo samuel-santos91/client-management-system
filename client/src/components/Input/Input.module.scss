@@ -5,12 +5,15 @@
   margin: 20px 0;
 
   .input {
-    width: 100%;
+    width: 40vw;
     border-radius: 10px;
-    border: 1px solid vars.$brown-theme;
+    border: 1px solid vars.$black-theme;
     box-sizing: border-box;
     padding: 16px;
     font-size: 16px;
+    @media screen and (max-width: 672px) {
+      width: 100%;
+    }
   }
 
   .error {

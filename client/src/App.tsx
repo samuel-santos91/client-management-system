@@ -5,8 +5,6 @@ import WizardPage from "./containers/WizardPage/WizardPage";
 import UserAdded from "./components/UserAdded/UserAdded";
 import StepperContextProvider from "./context/StepperContextProvider";
 
-import "./App.css";
-
 function App() {
   return (
     <StepperContextProvider>

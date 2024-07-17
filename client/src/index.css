@@ -24,10 +24,9 @@ a:hover {
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  background: linear-gradient(90deg, rgba(5,68,94,1) 0%, rgba(24,154,180,1) 46%, rgba(117,230,218,1) 100%);
 }
 
 h1 {

@@ -1,17 +1,23 @@
 @use "../../styles/partials/variables" as vars;
 
-.add-link {
-  position: fixed;
-  bottom: 0;
-  right: 0;
-  background-color: vars.$brown-theme;
-  width: 100%;
+.list-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+
+  .add-link {
+  background-color: vars.$black-theme;
+  width: 30vw;
   padding: 16px;
+  border-radius: 10px;
   text-align: center;
   font-weight: bold;
   color: white;
   &:hover {
     color: white;
-    background-color: vars.$brown-theme-hover;
+    background-color: vars.$black-theme-hover;
   }
 }
+}
+

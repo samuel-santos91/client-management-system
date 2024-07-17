@@ -7,7 +7,7 @@ import classes from './WizardPage.module.scss'
 
 const WizardPage: React.FC = () => {
   return (
-    <div>
+    <div className={classes['wizard-wrapper']}>
       <WizardContent/>
       <Link className={classes['return-link']} to='/'>Return to main page</Link>
     </div>

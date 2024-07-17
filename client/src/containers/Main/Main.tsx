@@ -7,7 +7,7 @@ import classes from './Main.module.scss'
 
 const Main: React.FC = () => {
   return (
-    <div>
+    <div className={classes['list-wrapper']}>
       <UserList />
       <Link className={classes['add-link']} to="/new-client">Add New User</Link>
     </div>

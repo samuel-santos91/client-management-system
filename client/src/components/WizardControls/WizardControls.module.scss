@@ -11,6 +11,8 @@
 
   .prev-btn {
     &:disabled {
+      background-color: vars.$disabled-theme-1;
+      color: vars.$disabled-theme-2;
       cursor: not-allowed;
     }
   }
@@ -20,18 +22,16 @@
     color: white;
 
     &:disabled {
-      background-color: vars.$disabled-theme-1;
-      color: vars.$disabled-theme-2;
       cursor: not-allowed;
     }
   }
 
   .add-user {
     white-space: nowrap;
-    background-color: vars.$table-line-2;
-    color: white;
+    background-color: vars.$add-user;
     &:hover {
-      background-color: vars.$table-line-2-hover;
+      background-color: vars.$add-user-hover;
+      color: white;
     }
   }
 }

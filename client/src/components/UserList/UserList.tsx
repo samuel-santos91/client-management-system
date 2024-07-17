@@ -35,8 +35,8 @@ const UserList: React.FC = () => {
   }, [formData]);
 
   return (
-    <main>
-      <h2>Users List</h2>
+    <main className={classes['table-wrapper']}>
+      <h2>List of Users</h2>
       {userDataList.length !== 0 ? (
         <table className={classes.table}>
           <thead>

@@ -12,6 +12,8 @@ import { FundingSourceFormData } from "../../components/Forms/FundingSourceForm/
 import { FormDataType } from "../../context/StepperContextProvider";
 import { addUser } from "../../services/api";
 
+import classes from './WizardContent.module.scss';
+
 type FormData = NameFormData & LanguageFormData & FundingSourceFormData;
 
 const WizardContent: React.FC = () => {
@@ -65,7 +67,7 @@ const WizardContent: React.FC = () => {
   };
 
   return (
-    <div>
+    <div className={classes['content-wrapper']}>
       {currentStep === 1 && <NameForm onSubmit={submitHandler} />}
       {currentStep === 2 && <LanguageForm onSubmit={submitHandler} />}
       {currentStep === 3 && <FundingSourceForm onSubmit={submitHandler} />}
